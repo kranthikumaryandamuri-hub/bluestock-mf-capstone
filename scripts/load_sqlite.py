@@ -51,3 +51,25 @@ perf.to_sql(
 print("fact_performance loaded:", len(perf))
 
 print("\nAll datasets loaded successfully")
+print("\nVerifying row counts...")
+
+print(
+    pd.read_sql(
+        "SELECT COUNT(*) as rows FROM fact_nav",
+        engine
+    )
+)
+
+print(
+    pd.read_sql(
+        "SELECT COUNT(*) as rows FROM fact_transactions",
+        engine
+    )
+)
+
+print(
+    pd.read_sql(
+        "SELECT COUNT(*) as rows FROM fact_performance",
+        engine
+    )
+)
